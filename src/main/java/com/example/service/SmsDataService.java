@@ -11,6 +11,8 @@ import java.util.Set;
 
 import javax.annotation.PostConstruct;
 
+import mongo.serialize.MongoJsonSerializer;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,8 +22,6 @@ import com.example.model.SmsData;
 import com.example.utils.MessageProcessor;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-import mongo.serialize.MongoJsonSerializer;
 
 @Service
 public class SmsDataService {
