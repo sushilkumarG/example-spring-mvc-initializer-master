@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.model.HintsForUser;
 import com.example.model.ParsedSmsData;
-import com.example.model.SmsData;
+import com.example.model.UserSmsData;
 import com.example.service.SmsDataService;
 
 @Controller
@@ -29,9 +29,9 @@ public class SmsDataController {
 
     @RequestMapping(value = "{id}", method = RequestMethod.POST)
     @ResponseBody
-    public Boolean addSmsData(@PathVariable Integer id, @RequestBody List<SmsData> smsData) {
+    public Boolean addSmsData(@PathVariable Integer id, @RequestBody UserSmsData userSmsData) {
         try {
-            smsDataService.addOrCreate(id, smsData);
+            smsDataService.addOrCreate(id, userSmsData.getSmsData());
         }
         catch (Exception e) {
             e.printStackTrace();
