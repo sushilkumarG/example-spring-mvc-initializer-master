@@ -3,6 +3,8 @@ package com.example.service;
 import java.net.UnknownHostException;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +21,8 @@ public class DataParserService {
 
     MessageProcessor messageProcessor;
 
+    private static Logger logger = LoggerFactory.getLogger(DataParserService.class);
+
     @Async
     void parseAndSave(Integer userId, List<SmsData> smsData) throws UnknownHostException {
         for (SmsData sd : smsData) {
@@ -32,6 +36,7 @@ public class DataParserService {
                 }
                 catch (Exception e) {
                     e.printStackTrace();
+                    logger.error("parsedsmsdata " + e);
                 }
             }
         }

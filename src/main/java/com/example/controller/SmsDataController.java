@@ -3,6 +3,8 @@ package com.example.controller;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,6 +25,8 @@ public class SmsDataController {
     @Autowired
     private SmsDataService smsDataService;
 
+    private static Logger logger = LoggerFactory.getLogger(SmsDataController.class);
+
     @RequestMapping(value = "{id}", method = RequestMethod.POST)
     @ResponseBody
     public Boolean addSmsData(@PathVariable Integer id, @RequestBody List<SmsData> smsData) {
@@ -31,6 +35,7 @@ public class SmsDataController {
         }
         catch (Exception e) {
             e.printStackTrace();
+            logger.error("controlleradd" + e);
         }
         return true;
     }
@@ -43,6 +48,7 @@ public class SmsDataController {
         }
         catch (Exception e) {
             e.printStackTrace();
+            logger.error("controllerget " + e);
         }
         return null;
     }
@@ -55,6 +61,7 @@ public class SmsDataController {
         }
         catch (Exception e) {
             e.printStackTrace();
+            logger.error("controllergethints " + e);
         }
         return null;
     }
@@ -67,6 +74,7 @@ public class SmsDataController {
         }
         catch (Exception e) {
             e.printStackTrace();
+            logger.error("controllerseller " + e);
         }
         return null;
     }
