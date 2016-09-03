@@ -9,17 +9,31 @@ import com.example.model.ParsedSmsData;
 
 public class MessageProcessor {
 
-    private static final String FLAT_UNIT        = "flat";
-    public static final String  LACS             = "Lakh";
-    public static final String  CRORES           = "Crore";
+    private static final String FLAT_UNIT           = "flat";
+    public static final String  LACS                = "Lakh";
+    public static final String  CRORES              = "Crore";
 
-    public static final String  MB_APARTMENT     = "Apartment";
-    public static final String  MB_BUILDER_FLOOR = "Builder Floor";
+    public static final String  MB_APARTMENT        = "Apartment";
+    public static final String  MB_BUILDER_FLOOR    = "Builder Floor";
+
+    static final String         NN_ACRES_TOP_DEALER = "Top Dealers";
+    static final String         NN_ACRES_THANK_YOU  = "Thank You";
+
+    private String remove(String text, String textToRemove) {
+        int indx = text.indexOf(textToRemove);
+        if (indx != -1) {
+            text = text.substring(0, indx);
+        }
+        return text;
+    }
 
     public ParsedSmsData parseData(String text, boolean isNNacres) {
         text = text.replaceAll("   ", " ");
         text = text.replaceAll("  ", " ");
         if (isNNacres) {
+            text = remove(text, NN_ACRES_TOP_DEALER);
+            text = remove(text, NN_ACRES_THANK_YOU);
+            System.out.println(text);
             return parseNNData(text);
         }
         return parseMBData(text);

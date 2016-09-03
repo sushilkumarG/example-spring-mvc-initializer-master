@@ -19,33 +19,33 @@ public class ParsedSmsData implements Serializable {
 
     @Id
     @Field("id")
-    private Integer id;
+    private Integer           id;
 
-    private Integer userId;
-    
-    private Long    date;
+    private Integer           userId;
 
-    private String  address;
+    private Long              date;
 
-    private String  city;
+    private String            address;
 
-    private String  locality;
+    private String            city;
 
-    private String  project;
+    private String            locality;
 
-    private String  budget;
+    private String            project;
 
-    private String  bhk;
+    private String            budget;
 
-    private String  unitType;
+    private String            bhk;
 
-    private String brokerMobileNumber;
+    private String            unitType;
 
-    private String brokerName;
+    private String            brokerMobileNumber;
 
-    private Boolean isNNAcres;
+    private String            brokerName;
 
-    private String area;
+    private Boolean           isNNAcres;
+
+    private String            area;
 
     public ParsedSmsData() {
     }
@@ -67,13 +67,11 @@ public class ParsedSmsData implements Serializable {
 
     }
 
-
     public void setId(Integer id) {
 
         this.id = id;
 
     }
-
 
     public Integer getUserId() {
 
@@ -81,13 +79,11 @@ public class ParsedSmsData implements Serializable {
 
     }
 
-
     public void setUserId(Integer userId) {
 
         this.userId = userId;
 
     }
-
 
     public Long getDate() {
 
@@ -95,13 +91,11 @@ public class ParsedSmsData implements Serializable {
 
     }
 
-
     public void setDate(Long date) {
 
         this.date = date;
 
     }
-
 
     public String getAddress() {
 
@@ -109,13 +103,11 @@ public class ParsedSmsData implements Serializable {
 
     }
 
-
     public void setAddress(String address) {
 
         this.address = address;
 
     }
-
 
     public String getCity() {
 
@@ -123,13 +115,11 @@ public class ParsedSmsData implements Serializable {
 
     }
 
-
     public void setCity(String city) {
 
         this.city = city;
 
     }
-
 
     public String getLocality() {
 
@@ -137,13 +127,11 @@ public class ParsedSmsData implements Serializable {
 
     }
 
-
     public void setLocality(String locality) {
 
         this.locality = locality;
 
     }
-
 
     public String getProject() {
 
@@ -151,13 +139,11 @@ public class ParsedSmsData implements Serializable {
 
     }
 
-
     public void setProject(String project) {
 
         this.project = project;
 
     }
-
 
     public String getBudget() {
 
@@ -165,13 +151,11 @@ public class ParsedSmsData implements Serializable {
 
     }
 
-
     public void setBudget(String budget) {
 
         this.budget = budget;
 
     }
-
 
     public String getBhk() {
 
@@ -179,20 +163,17 @@ public class ParsedSmsData implements Serializable {
 
     }
 
-
     public void setBhk(String bhk) {
 
         this.bhk = bhk;
 
     }
 
-
     public String getUnitType() {
 
         return unitType;
 
     }
-
 
     public void setUnitType(String unitType) {
 
@@ -249,36 +230,37 @@ public class ParsedSmsData implements Serializable {
     }
 
     @Override
-
     public String toString() {
 
         return "ParsedSmsData [locality=" + locality
 
-                + ", budget="
+        + ", budget="
 
-                + budget
+        + budget
 
-                + ", unitType="
+        + ", unitType="
 
-                + unitType
+        + unitType
 
-                + ", brokerMobileNumber="
+        + ", brokerMobileNumber="
 
-                + brokerMobileNumber
+        + brokerMobileNumber
 
-                + ", brokerName="
+        + ", brokerName="
 
-                + brokerName
+        + brokerName + ", project="
 
-                + ", isNNAcres="
+        + project
 
-                + isNNAcres
+        + ", isNNAcres="
 
-                + ", area="
+        + isNNAcres
 
-                + area
+        + ", area="
 
-                + "]";
+        + area
+
+        + "]";
 
     }
 
