@@ -127,6 +127,22 @@
         <version>1.9.2.RELEASE</version>
     </dependency>
     
+    	<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.5</version>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.0.13</version>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-core</artifactId>
+			<version>1.0.13</version>
+		</dependency>
+    
 <!-- Apache Commons FileUpload --> 
 <dependency>
 	<groupId>commons-fileupload</groupId>

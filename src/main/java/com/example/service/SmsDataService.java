@@ -11,8 +11,8 @@ import java.util.Set;
 
 import javax.annotation.PostConstruct;
 
-import mongo.serialize.MongoJsonSerializer;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,11 +23,14 @@ import com.example.utils.MessageProcessor;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import mongo.serialize.MongoJsonSerializer;
+
 @Service
 public class SmsDataService {
 
     // @Autowired
     // MongoOperations mongo;
+    private static Logger logger = LoggerFactory.getLogger(SmsDataService.class);
 
     @PostConstruct
     void createCollection() throws UnknownHostException {
@@ -55,6 +58,7 @@ public class SmsDataService {
             }
             catch (Exception e) {
                 e.printStackTrace();
+                logger.error("smsdata " + e);
             }
         }
         Integer userId = leadService.getClinentByEnquiryId(id);

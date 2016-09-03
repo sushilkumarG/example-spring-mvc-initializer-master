@@ -3,6 +3,8 @@ package com.example.controller;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,7 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.model.HintsForUser;
 import com.example.model.ParsedSmsData;
-import com.example.model.SmsData;
+import com.example.model.UserSmsData;
 import com.example.service.SmsDataService;
 
 @Controller
@@ -23,14 +25,17 @@ public class SmsDataController {
     @Autowired
     private SmsDataService smsDataService;
 
+    private static Logger logger = LoggerFactory.getLogger(SmsDataController.class);
+
     @RequestMapping(value = "{id}", method = RequestMethod.POST)
     @ResponseBody
-    public Boolean addSmsData(@PathVariable Integer id, @RequestBody List<SmsData> smsData) {
+    public Boolean addSmsData(@PathVariable Integer id, @RequestBody UserSmsData userSmsData) {
         try {
-            smsDataService.addOrCreate(id, smsData);
+            smsDataService.addOrCreate(id, userSmsData.getSmsData());
         }
         catch (Exception e) {
             e.printStackTrace();
+            logger.error("controlleradd" + e);
         }
         return true;
     }
@@ -43,6 +48,7 @@ public class SmsDataController {
         }
         catch (Exception e) {
             e.printStackTrace();
+            logger.error("controllerget " + e);
         }
         return null;
     }
@@ -55,6 +61,7 @@ public class SmsDataController {
         }
         catch (Exception e) {
             e.printStackTrace();
+            logger.error("controllergethints " + e);
         }
         return null;
     }
@@ -67,6 +74,7 @@ public class SmsDataController {
         }
         catch (Exception e) {
             e.printStackTrace();
+            logger.error("controllerseller " + e);
         }
         return null;
     }
